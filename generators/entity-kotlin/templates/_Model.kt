@@ -7,6 +7,10 @@ import io.swagger.annotations.ApiModelProperty
 <%_ if (imports.isNullable) { _%>
 import io.swagger.annotations.ApiParam
 <%_ } _%>
+<%_ if (imports.isNullable) { _%>
+import com.baomidou.mybatisplus.annotations.TableId
+import com.baomidou.mybatisplus.enums.IdType
+<%_ } _%>
 import javax.persistence.*
 <%_ if (imports.isNullable) { _%>
 import javax.validation.constraints.NotNull
@@ -43,16 +47,18 @@ data class <%= entityClass %> (
     <%_ for (var i = 0; i < columns.length; i++) { _%>
         <%_ const column = columns[i] _%>
         <%_ if ('id' === column.COLUMN_NAME) { _%>
-        @field:Id
-        @field:Column(name = "id")
-        var id: String? = null,
+            <%_ if ('Int' === column.fieldType) { _%>
+        @field:TableId(type = IdType.AUTO) 
+            <%_ } else { _%> 
+        @field:TableId(type = IdType.UUID) 
+            <%_ } _%>
+        var id: <%= column.fieldType %>? = null,
         <%_ } else { _%>
             <%_ if ('NO' === column.IS_NULLABLE && !isIgnoreNotNull(column.COLUMN_NAME)) { _%>
         @field:NotNull
         @field:ApiParam(required = true)
             <%_ } _%>
         @field:ApiModelProperty(value = "<%- column.COLUMN_COMMENT %>")
-        @field:Column(name = "<%= column.COLUMN_NAME %>")
         var <%= column.fieldName%>: <%= column.fieldType %>? = null<%= comma(i, columns.length) _%>
 
         <%_ } _%>

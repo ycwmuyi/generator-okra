@@ -1,12 +1,14 @@
 {
-  "name": "generator-duiker",
-  "version": "3.0.4",
+  "name": "generator-okra",
+  "version": "1.0.0",
   "main": "generators/app/index.js",
   "license": "MIT",
   "files": [
     "generators"
   ],
-  "keywords": ["duiker"],
+  "keywords": [
+    "duiker"
+  ],
   "dependencies": {
     "lodash": "^4.17.4",
     "moment": "^2.19.2",
