@@ -1,0 +1,16 @@
+{
+  "name": "generator-duiker",
+  "version": "3.0.4",
+  "main": "generators/app/index.js",
+  "license": "MIT",
+  "files": [
+    "generators"
+  ],
+  "keywords": ["duiker"],
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "moment": "^2.19.2",
+    "mysql": "^2.15.0",
+    "yeoman-generator": "^2.0.1"
+  }
+}
