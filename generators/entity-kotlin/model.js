@@ -102,6 +102,7 @@ module.exports = class {
           break
         case 'timestamp':
         case 'date':
+        case 'datetime':
           column.fieldType = 'Date'
           imports.Date = true
           break
