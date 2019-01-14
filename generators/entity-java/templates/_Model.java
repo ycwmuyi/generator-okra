@@ -4,8 +4,10 @@ package <%= groupCases.splitByDot %>.<%= nameCases.splitByDot %>.model;
 import <%= groupCases.splitByDot %>.<%= nameCases.splitByDot %>.enums.<%= e.enumClass %>;
 <%_ } _%>
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;;
+import lombok.Data;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 <%_ if (imports.isNullable) { _%>
 import javax.validation.constraints.NotNull;
@@ -53,8 +55,14 @@ public class <%= entityClass %> {
             <%_ if ('NO' === column.IS_NULLABLE && !isIgnoreNotNull(column.COLUMN_NAME)) { _%>
         @NotNull
         @ApiParam(required = true)
-            <%_ } _%>
+            <%_ } _%>  
         @ApiModelProperty(value = "<%- column.COLUMN_COMMENT %>")
+            <%_ if ('create_time' === column.COLUMN_NAME) { _%>
+        @TableField(fill = FieldFill.INSERT)
+            <%_ } _%>  
+            <%_ if ('update_time' === column.COLUMN_NAME) { _%>
+        @TableField(fill = FieldFill.INSERT_UPDATE)
+            <%_ } _%>  
         private <%= column.fieldType %> <%= column.fieldName%>;
         <%_ } _%>
 
