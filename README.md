@@ -30,8 +30,9 @@ npm link
 
 * 生成代码
 ````
-在自己的工程目录下执(目前直支持kotlin 代码生成)
-yo okra:entity-kotlin
+yo okra:entity-kotlin (生成kotlin 代码)
+
+yo okra:entity-java (生成java 代码)
 
 ````
 * 数据库url格式
@@ -47,6 +48,11 @@ mysql://user:pass@host/db?charset=utf8
 
 - entity-kotlin 只需要在数据库创建好表结构，即可生成一整套基于MyBatis-Plus的增删改查代码
 
+## [1.1.0] - 2019-01-14
+### Added
+
+- 代码生成工具支持生成java代码
+- 添加create_time 和 update_time 字段的自动填配置
 
 
 
