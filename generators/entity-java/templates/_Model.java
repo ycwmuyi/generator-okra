@@ -1,26 +1,21 @@
-package <%= groupCases.splitByDot %>.<%= nameCases.splitByDot %>.model
+package <%= groupCases.splitByDot %>.<%= nameCases.splitByDot %>.model;
 
 <%_ for (var e of enums) { _%>
-import <%= groupCases.splitByDot %>.<%= nameCases.splitByDot %>.enums.<%= e.enumClass %>
+import <%= groupCases.splitByDot %>.<%= nameCases.splitByDot %>.enums.<%= e.enumClass %>;
 <%_ } _%>
-import io.swagger.annotations.ApiModelProperty
-import lombok.Data;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.IdType;
 <%_ if (imports.isNullable) { _%>
-import io.swagger.annotations.ApiParam
-<%_ } _%>
-<%_ if (imports.isNullable) { _%>
-import com.baomidou.mybatisplus.annotations.TableId
-import com.baomidou.mybatisplus.enums.IdType
-<%_ } _%>
-import javax.persistence.*
-<%_ if (imports.isNullable) { _%>
-import javax.validation.constraints.NotNull
+import javax.validation.constraints.NotNull;
+import io.swagger.annotations.ApiParam;
 <%_ } _%>
 <%_ if (imports.BigDecimal) { _%>
-import java.math.BigDecimal
+import java.math.BigDecimal;
 <%_ } _%>
 <%_ if (imports.Date) { _%>
-import java.util.Date
+import java.util.Date;
 <%_ } _%>
 <%_
 // CreateTime, UpdateTime 取消 @NotNull 注解
@@ -43,7 +38,6 @@ _%>
  * @author duiker(generated)
  */
 @Data
-@Table(name = "<%= tableName %>")
 public class <%= entityClass %> {
 
     <%_ for (var i = 0; i < columns.length; i++) { _%>
