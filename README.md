@@ -30,7 +30,9 @@ npm link
 
 * 生成代码
 ````
-yo okra:entity-kotlin (生成kotlin 代码)
+yo okra:entity-kotlin-3 (生成kotlin 代码，mybatis-plus 3.0)
+
+yo okra:entity-kotlin (生成kotlin 代码，mybatis-plus 2.0)
 
 yo okra:entity-java (生成java 代码)
 
@@ -52,6 +54,12 @@ mysql://user:pass@host/db?charset=utf8
 ### Added
 
 - 代码生成工具支持生成java代码
+- 添加create_time 和 update_time 字段的自动填配置
+
+## [1.1.0] - 2019-03-28
+### Added
+
+- 代码生成工具支持生成 mybatis-plus 3.0 代码 
 - 添加create_time 和 update_time 字段的自动填配置
 
 
