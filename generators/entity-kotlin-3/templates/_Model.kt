@@ -52,10 +52,6 @@ data class <%= entityClass %> (
             <%_ } _%>
         var id: <%= column.fieldType %>? = null,
         <%_ } else { _%>
-            <%_ if ('NO' === column.IS_NULLABLE && !isIgnoreNotNull(column.COLUMN_NAME)) { _%>
-        @field:NotNull
-        @field:ApiParam(required = true)
-            <%_ } _%>
         @field:ApiModelProperty(value = "<%- column.COLUMN_COMMENT %>")
             <%_ if ('create_time' === column.COLUMN_NAME) { _%>
         @TableField(fill = FieldFill.INSERT)
